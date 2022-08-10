@@ -1,10 +1,10 @@
 function Layout(props) {
 	return (
-		<section>
+		<section className={`content ${props.name}`}>
 			<figure>
-				<h1></h1>
+				<h1>{props.name}</h1>
 			</figure>
-			<div className='inner'>{props.chidren}</div>
+			<div className='inner'>{props.children}</div>
 		</section>
 	);
 }
