@@ -1,10 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
 	const active = { color: 'cornflowerblue' };
 
 	return (
-		<header>
+		<header className={props.type}>
 			<h1>
 				<Link to='/'>LOGO</Link>
 			</h1>
