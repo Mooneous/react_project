@@ -30,7 +30,7 @@ function Youtube() {
 							<p>{vid.snippet.description}</p>
 							<img
 								src={vid.snippet.thumbnails.standard.url}
-								alt='thumbnail image'
+								alt={vid.title}
 								onClick={() => setOpen(true)}
 							/>
 							<span>{vid.snippet.publishedAt}</span>
@@ -39,8 +39,8 @@ function Youtube() {
 				})}
 			</Layout>
 
-			{/* Open이라는 state값이 true일때만 팝업보여주기 */}
-			{Open && <Popup></Popup>}
+			{/* Open이라는 state값이 true일때만 팝업보여주기 그리고 setOpen스테이트 명으로 setOpen스테이트변경함수를 전달 */}
+			{Open && <Popup setOpen={setOpen}></Popup>}
 		</>
 	);
 }
