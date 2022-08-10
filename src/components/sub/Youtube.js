@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 function Youtube() {
 	const [Vids, setVids] = useState([]);
 	const [Open, setOpen] = useState(false); //초기값 : 안보이게 false
+	const [Index, setIndex] = useState(0);
 
 	useEffect(() => {
 		const key = 'AIzaSyC77Pd__ju0Wqx_Umc-IuW7Cn2mWi_HVsk';
@@ -31,7 +32,10 @@ function Youtube() {
 							<img
 								src={vid.snippet.thumbnails.standard.url}
 								alt={vid.title}
-								onClick={() => setOpen(true)}
+								onClick={() => {
+									setOpen(true);
+									setIndex(idx);
+								}}
 							/>
 							<span>{vid.snippet.publishedAt}</span>
 						</article>
@@ -40,7 +44,14 @@ function Youtube() {
 			</Layout>
 
 			{/* Open이라는 state값이 true일때만 팝업보여주기 그리고 setOpen스테이트 명으로 setOpen스테이트변경함수를 전달 */}
-			{Open && <Popup setOpen={setOpen}></Popup>}
+			{Open && (
+				<Popup setOpen={setOpen}>
+					<iframe
+						src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
+						frameBorder='0'></iframe>
+					{/*카멜케이스?frameborder소문자아니죠frameBorder대문자맞죠*/}
+				</Popup>
+			)}
 		</>
 	);
 }
