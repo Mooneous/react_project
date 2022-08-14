@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import { Link, NavLink } from 'react-router-dom';
 
 function Header(props) {
@@ -43,10 +46,16 @@ function Header(props) {
 					</li>
 				</ul>
 				<ul className='gnb gnbR'>
-					<li>Login</li>
-					<li>Contact</li>
+					<li>
+						<NavLink to='#'>LogIn</NavLink>
+					</li>
+					<li>
+						<NavLink to='#'>SignUp</NavLink>
+					</li>
 				</ul>
 			</nav>
+
+			<FontAwesomeIcon icon={faBars} />
 		</header>
 	);
 }

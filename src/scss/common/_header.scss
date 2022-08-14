@@ -1,10 +1,10 @@
 header {
 	background: linen;
 	width: 100%;
+	display: relative;
 
 	h1 {
 		padding: 20px 10vw;
-		background-color: salmon;
 	}
 
 	nav {
@@ -19,16 +19,40 @@ header {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			gap: 20px;
 
 			li {
-				padding: 20px 0;
+				padding: 20px;
 			}
 		}
+
+		.gnbL li:first-child {
+			padding-left: 0;
+		}
+
+		.gnbR {
+			li {
+				display: block;
+				border-left: 1px solid #333;
+
+				&:last-child {
+					border-right: 1px solid #333;
+				}
+			}
+		}
+	}
+	.fa-bars {
+		font-size: 24px;
+		color: #444;
+		position: absolute;
+		right: 10vw;
+		top: 42px;
+		transform: translateY(-50%);
+		display: none;
 	}
 }
 
 header.main {
+	background: transparent;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -36,15 +60,60 @@ header.main {
 
 	h1 {
 		a {
-			color: #fff;
+			color: gold;
 		}
 	}
+	nav {
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;
 
-	#gnb {
-		li {
-			a {
-				color: #fff;
+		.gnb {
+			li {
+				a {
+					color: #fff;
+				}
 			}
+		}
+
+		.gnbR {
+			li {
+				display: block;
+				border-left: 1px solid #efefef;
+
+				&:last-child {
+					border-right: 1px solid #efefef;
+				}
+			}
+		}
+	}
+	.fa-bars {
+		color: #fff;
+	}
+}
+
+@media screen and (max-width: $tablet) {
+	header {
+		h1 {
+			font-size: 24px;
+			padding: 15px 10vw;
+		}
+		nav {
+			display: none;
+		}
+		.fa-bars {
+			top: 32px;
+			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	header {
+		h1 {
+			padding: 10px 10vw;
+		}
+		.fa-bars {
+			top: 27px;
 		}
 	}
 }
