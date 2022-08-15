@@ -1,6 +1,10 @@
 import Layout from '../common/Layout';
 import Popup from '../common/Popup';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
+
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -23,21 +27,43 @@ function Youtube() {
 	return (
 		<>
 			<Layout name={'Youtube'}>
-				{' '}
 				{Vids.map((vid, idx) => {
 					return (
-						<article key={idx}>
-							<h2>{vid.snippet.title}</h2>
-							<p>{vid.snippet.description}</p>
-							<img
-								src={vid.snippet.thumbnails.standard.url}
-								alt={vid.title}
-								onClick={() => {
-									setOpen(true);
-									setIndex(idx);
-								}}
-							/>
-							<span>{vid.snippet.publishedAt}</span>
+						<article
+							key={idx}
+							onClick={() => {
+								setOpen(true);
+								setIndex(idx);
+							}}>
+							<div className='number'>
+								<span>0{idx + 1}</span>
+							</div>
+
+							<div className='pic'>
+								<img src={vid.snippet.thumbnails.standard.url} alt={vid.title} />
+							</div>
+
+							<div className='txt'>
+								<h2>
+									{vid.snippet.title.length > 20
+										? vid.snippet.title.substr(0, 20) + '...'
+										: vid.snippet.title}
+								</h2>
+								<p>
+									{vid.snippet.description.length > 200
+										? vid.snippet.description.substr(0, 200) + '...'
+										: vid.snippet.description}
+								</p>
+								<span>{vid.snippet.publishedAt.split('T')[0]}</span>
+							</div>
+
+							<div className='playIcon'>
+								<FontAwesomeIcon icon={faCirclePlay} />
+							</div>
+
+							<div className='watch'>
+								<span>WATCH</span>
+							</div>
 						</article>
 					);
 				})}
