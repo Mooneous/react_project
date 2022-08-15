@@ -53,7 +53,7 @@ function Department() {
 					</div>
 
 					<div>
-						<h2>Collaborate</h2>
+						<h2>Collaboration</h2>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, ducimus nemo itaque
 							quos assumenda nihil ipsa repellendus pariatur. Nihil, est?

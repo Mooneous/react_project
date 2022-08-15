@@ -3,7 +3,6 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap; //★★★
-		padding: 150px 0;
 
 		> h1 {
 			width: 30%;
@@ -20,7 +19,7 @@
 	}
 
 	.section02 {
-		padding: 150px 0 0 0;
+		padding: 150px 0 50px 0;
 		.articleWrap {
 			display: flex;
 			justify-content: space-between;
@@ -55,6 +54,8 @@
 					width: 100%;
 					height: 10vw;
 					object-fit: cover;
+					border-radius: 0 0 3vw 0;
+
 					filter: saturate(0);
 					transition: 0.5s;
 					position: relative;
