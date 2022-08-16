@@ -10,7 +10,6 @@ function Members() {
 	//현재 입력하고 있는 input값을 state에 저장해주는 함수
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-
 		//name = 'userid'
 		//객체에서 키값을 변수로 지정이 안됨 (es5)
 		//객체에세 키값을 변수로 치환하고자 할때는 키에 들어갈 변수를 대괄호로 감싸줌 (es6)
@@ -41,6 +40,13 @@ function Members() {
 										onChange={handleChange}
 									/>
 								</td>
+							</tr>
+							{/* btnSet */}
+							<tr>
+								<th colSpan='2'>
+									<input type='reset' value='cancel' />
+									<input type='submit' value='submit' />
+								</th>
 							</tr>
 						</tbody>
 					</table>

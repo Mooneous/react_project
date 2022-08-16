@@ -14,9 +14,9 @@ function Youtube() {
 	const [Index, setIndex] = useState(0);
 
 	useEffect(() => {
-		const key = 'AIzaSyC77Pd__ju0Wqx_Umc-IuW7Cn2mWi_HVsk';
-		const playlist = 'PLHtvRFLN5v-VD95TBpr5Dh2zguWCjjmMG';
-		const num = 6;
+		const key = 'AIzaSyB5JZfJTpMHm2WfEEIid2Dt443MfKM9XAU';
+		const playlist = 'PL0niq1d_d9TP1sXECKOKrBpMhjbkfrjsE';
+		const num = 3;
 		const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
 		axios.get(url).then((json) => {
 			//console.log(json.data.items);
