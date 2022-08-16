@@ -18,6 +18,11 @@ function Members() {
 		if (value.userid.length < 5) {
 			errs.userid = '아이디를 5글자 이상 입력하세요';
 		}
+		//email인증 처리
+		if (value.email.length < 8 || !/@/.test(value.email)) {
+			errs.email = '이메일주소는 8글자 이상 @를 포함하세요';
+		}
+
 		return errs;
 	};
 
@@ -71,6 +76,23 @@ function Members() {
 									/>
 									{/*userid 에러메시지*/}
 									<span className='err'>{Err.userid}</span>
+								</td>
+							</tr>
+
+							{/*email*/}
+							<tr>
+								<th scope='row'>
+									<label htmlFor='email'>E-MAIL</label>
+								</th>
+								<td>
+									<input
+										type='text'
+										id='email'
+										name='email'
+										placeholder='이메일주소를 입력하세요'
+										onChange={handleChange}
+									/>
+									<span className='err'>{Err.email}</span>
 								</td>
 							</tr>
 
